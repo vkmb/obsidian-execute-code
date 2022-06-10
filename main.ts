@@ -254,10 +254,10 @@ export default class ExecuteCodePlugin extends Plugin {
 		outputter.clear();
 
 		child.stdout.on('data', (data) => {
-			outputter.write(data.toString());
+			outputter.write(data.toString() + "\n");
 		});
 		child.stderr.on('data', (data) => {
-			outputter.writeErr(data.toString());
+			outputter.writeErr(data.toString() + "\n");
 		});
 
 		child.on('close', (code) => {
